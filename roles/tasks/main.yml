@@ -1,4 +1,8 @@
-    - name: Install chromium-browser
+    - name: Install Geary email client
+      apt: pkg=geary
+      become: yes
+
+    - name: Install chromium web browser
       apt: pkg=chromium-browser
       become: yes
 
