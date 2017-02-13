@@ -36,6 +36,10 @@
       apt: pkg=terminator
       become: yes
 
+    - name: Install SSH server
+      apt: pkg=openssh-server
+      become: yes
+
     - name: Install OpenVPN client
       apt: pkg=openvpn
       become: yes
