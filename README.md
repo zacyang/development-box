@@ -5,10 +5,13 @@ Provisioning of development box with known good combinations of commonly used pa
 Before
 --
 
-sudo apt-get install git-core
-git clone --recursive git@github.com:Qualis/development-box.git
-cd development-box
+You will need to have your `ssh` key setup in `github.com`.
+
+- `sudo apt-get install git-core`
+- `git clone --recursive git@github.com:svo/development-box.git`
+- `cd development-box`
 
 Build
 --
-./build.sh
+
+`./build.sh`
