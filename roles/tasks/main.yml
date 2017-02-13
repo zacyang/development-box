@@ -10,6 +10,14 @@
       apt: pkg=chromium-browser
       become: yes
 
+    - name: Install git
+      apt: pkg=git-core
+      become: yes
+
+    - name: Install gitg git GUI
+      apt: pkg=gitg
+      become: yes
+
     - name: Install terminator
       apt: pkg=terminator
       become: yes
