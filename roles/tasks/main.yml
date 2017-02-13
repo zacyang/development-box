@@ -18,6 +18,20 @@
       apt: pkg=gitg
       become: yes
 
+    - name: Install ansible setup requirements
+      apt: pkg={{ item }}
+      become: yes
+      with_items:
+      - build-essential
+      - libssl-dev
+      - libffi-dev
+      - python-dev
+      - python-pip
+
+    - name: Install ansible
+      pip: name=ansible version=2.1.1.0
+      become: yes
+
     - name: Install terminator
       apt: pkg=terminator
       become: yes
