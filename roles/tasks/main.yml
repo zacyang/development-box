@@ -18,6 +18,9 @@
       apt: pkg=gitg
       become: yes
 
+    - name: Set vim as git editor
+      git_config: name=core.editor scope=global value=vim
+
     - name: Install ansible setup requirements
       apt: pkg={{ item }}
       become: yes
