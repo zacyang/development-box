@@ -1,3 +1,7 @@
+    - name: Install VLC media player
+      apt: pkg=vlc
+      become: yes
+
     - name: Install Geary email client
       apt: pkg=geary
       become: yes
@@ -8,6 +12,10 @@
 
     - name: Install terminator
       apt: pkg=terminator
+      become: yes
+
+    - name: Install OpenVPN client
+      apt: pkg=openvpn
       become: yes
 
     - name: Install rbenv
@@ -79,3 +87,6 @@
         backup: yes
         block: |
           {{ bashrc_content.stdout }}
+
+    - name: Add rbenv to .bashrc
+      lineinfile: dest=~/.bashrc line='eval "$(rbenv init -)"'
