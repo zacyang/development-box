@@ -21,7 +21,7 @@
     - name: Set vim as git editor
       git_config: name=core.editor scope=global value=vim
 
-    - name: Install ansible setup requirements
+    - name: Install ansible requirements
       apt: pkg={{ item }}
       become: yes
       with_items:
@@ -30,6 +30,7 @@
       - libffi-dev
       - python-dev
       - python-pip
+      - python-software-properties
 
     - name: Install ansible
       pip: name=ansible version=2.1.1.0
@@ -50,6 +51,24 @@
     - name: Install PCP GUI
       apt: pkg=pcp-gui
       become: yes
+
+    - name: Install webupd8team apt repository
+      apt_repository: repo='ppa:webupd8team/java' state=present
+      become: yes
+
+    - name: Accept Oracle Java license
+      debconf: name={{ item }} question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+      become: yes
+      with_items:
+      - oracle-java7-installer
+      - oracle-java8-installer
+
+    - name: Install Oracle Java
+      apt: pkg={{ item }}
+      become: yes
+      with_items:
+      - oracle-java7-installer
+      - oracle-java8-installer
 
     - name: Install rbenv
       apt: pkg={{ item }}
