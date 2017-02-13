@@ -47,6 +47,10 @@
       apt: pkg=openvpn
       become: yes
 
+    - name: Install PCP GUI
+      apt: pkg=pcp-gui
+      become: yes
+
     - name: Install rbenv
       apt: pkg={{ item }}
       become: yes
