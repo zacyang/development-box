@@ -61,3 +61,17 @@
       with_items:
       - virtualbox-5.1_5.1.14-112924~Ubuntu~xenial_amd64.deb
       - vagrant_1.9.1_x86_64.deb
+
+    - name: Copy bashrc source file
+      copy: src=bashrc dest=/tmp/bashrc
+
+    - name: Get .bashrc content 
+      shell: cat /tmp/bashrc
+      register: bashrc_content
+
+    - name: Update .bashrc 
+      blockinfile:
+        dest: ~/.bashrc
+        backup: yes
+        block: |
+          {{ bashrc_content.stdout }}
