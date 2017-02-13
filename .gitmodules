@@ -1,0 +1,9 @@
+[submodule "roles/environment-core"]
+	path = roles/environment-core
+	url = git@github.com:svo/environment-core.git
+[submodule "roles/environment-docker"]
+	path = roles/environment-docker
+	url = git@github.com:svo/environment-docker.git
+[submodule "roles/environment-clojure"]
+	path = roles/environment-clojure
+	url = git@github.com:svo/environment-clojure.git
