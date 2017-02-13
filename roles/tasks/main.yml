@@ -6,6 +6,13 @@
       apt: pkg=terminator
       become: yes
 
+    - name: Install rbenv
+      apt: pkg={{ item }}
+      become: yes
+      with_items:
+      - rbenv
+      - ruby-build
+
     - name: Add user to user groups
       user: name={{ansible_user_id}} groups={{ item }} append=yes
       with_items:
