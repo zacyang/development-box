@@ -117,6 +117,9 @@
     - name: Install vim-javascript
       git: repo=https://github.com/pangloss/vim-javascript.git dest=~/.vim/bundle/vim-javascript
 
+    - name: Install ansible-vim
+      git: repo=https://github.com/pearofducks/ansible-vim.git dest=~/.vim/bundle/ansible-vim
+
     - name: Create home directories
       file: path=~/{{ item }} state=directory
       with_items:
