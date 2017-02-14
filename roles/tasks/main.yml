@@ -18,6 +18,10 @@
       apt: pkg=gitg
       become: yes
 
+    - name: Install subversion
+      apt: pkg=subversion
+      become: yes
+
     - name: Set vim as git editor
       git_config: name=core.editor scope=global value=vim
 
