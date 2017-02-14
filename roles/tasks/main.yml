@@ -10,7 +10,7 @@
       apt: pkg=chromium-browser
       become: yes
 
-    - name: Install git
+    - name: Install git source control
       apt: pkg=git-core
       become: yes
 
@@ -18,12 +18,12 @@
       apt: pkg=gitg
       become: yes
 
-    - name: Install subversion
-      apt: pkg=subversion
-      become: yes
-
     - name: Set vim as git editor
       git_config: name=core.editor scope=global value=vim
+
+    - name: Install subversion source control
+      apt: pkg=subversion
+      become: yes
 
     - name: Install ansible requirements
       apt: pkg={{ item }}
@@ -36,7 +36,7 @@
       - python-pip
       - python-software-properties
 
-    - name: Install ansible
+    - name: Install ansible configuration management
       pip: name=ansible version=2.1.1.0
       become: yes
 
@@ -44,7 +44,7 @@
       apt: pkg=nmap
       become: yes
 
-    - name: Install terminator
+    - name: Install terminator terminal emulator
       apt: pkg=terminator
       become: yes
 
@@ -60,7 +60,7 @@
       apt: pkg=pcp-gui
       become: yes
 
-    - name: Install webupd8team apt repository
+    - name: Install webupd8team apt repository for Oracle Java
       apt_repository: repo='ppa:webupd8team/java' state=present
       become: yes
 
@@ -82,7 +82,7 @@
       apt: pkg=maven
       become: yes
 
-    - name: Install rbenv
+    - name: Install rbenv ruby version control
       apt: pkg={{ item }}
       become: yes
       with_items:
@@ -146,6 +146,10 @@
 
     - name: Copy JetBrains toolbox
       copy: src=/tmp/jetbrains-toolbox-1.1.2143/jetbrains-toolbox dest=/usr/bin/jetbrains-toolbox mode=0755
+      become: yes
+
+    - name: Install GIMP photo editor
+      apt: pkg=gimp
       become: yes
 
     - name: Copy bashrc source file
