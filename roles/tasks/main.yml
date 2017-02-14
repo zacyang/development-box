@@ -115,11 +115,17 @@
       with_items:
       - {name: grunt-cli, version: 1.2.0}
 
-    - name: Install vim-javascript
-      git: repo=https://github.com/pangloss/vim-javascript.git dest=~/.vim/bundle/vim-javascript
+    - name: Install vim plugins
+      git: repo={{ item.repo }} dest=~/.vim/bundle/{{ item.dest }}
+      with_items:
+      - {repo: "https://github.com/pangloss/vim-javascript.git", dest: vim-javascript}
+      - {repo: "https://github.com/pearofducks/ansible-vim.git", dest: ansible-vim}
+      - {repo: "https://github.com/plasticboy/vim-markdown.git", dest: vim-markdown}
 
-    - name: Install ansible-vim
-      git: repo=https://github.com/pearofducks/ansible-vim.git dest=~/.vim/bundle/ansible-vim
+    - name: Update vim configuration
+      lineinfile: dest=~/.vimrc line="{{ item }}"
+      with_items:
+      - let g:vim_markdown_folding_style_pythonic = 1
 
     - name: Create home directories
       file: path=~/{{ item }} state=directory
