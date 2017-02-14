@@ -70,6 +70,10 @@
       - oracle-java7-installer
       - oracle-java8-installer
 
+    - name: Install Maven 3
+      apt: pkg=maven
+      become: yes
+
     - name: Install rbenv
       apt: pkg={{ item }}
       become: yes
