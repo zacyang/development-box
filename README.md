@@ -1,6 +1,6 @@
 # Development Box 
 
-Provisioning of development box with known good combinations of commonly used packages.
+Provisioning of Ubuntu 16.04 development box with known good combinations of commonly used packages.
 
 Before
 --
