@@ -40,6 +40,10 @@
       pip: name=ansible version=2.1.1.0
       become: yes
 
+    - name: Install Nmap for network discovery and security auditing
+      apt: pkg=nmap
+      become: yes
+
     - name: Install terminator
       apt: pkg=terminator
       become: yes
