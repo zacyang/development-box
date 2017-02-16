@@ -182,3 +182,13 @@
 
     - name: Add rbenv to .bashrc
       lineinfile: dest=~/.bashrc line='eval "$(rbenv init -)"'
+
+    - name: Determine if laptop
+      command: laptop-detect
+      register: is_laptop
+      ignore_errors: yes
+
+    - name: Install Laptop Mode Tools
+      apt: pkg=laptop-mode-tools
+      when: is_laptop|succeeded
+      become: yes
