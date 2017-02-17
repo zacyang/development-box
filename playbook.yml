@@ -4,6 +4,7 @@
   roles:
 
     - environment-core
-    - environment-clojure
+    - environment-monitoring
     - environment-docker
+    - environment-clojure
     - .

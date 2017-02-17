@@ -7,3 +7,6 @@
 [submodule "roles/environment-clojure"]
 	path = roles/environment-clojure
 	url = git@github.com:svo/environment-clojure.git
+[submodule "roles/environment-monitoring"]
+	path = roles/environment-monitoring
+	url = git@github.com:svo/environment-monitoring.git

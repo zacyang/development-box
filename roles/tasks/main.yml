@@ -47,10 +47,6 @@
       pip: name=ansible version=2.1.1.0
       become: yes
 
-    - name: Install Nmap for network discovery and security auditing
-      apt: pkg=nmap
-      become: yes
-
     - name: Install terminator terminal emulator
       apt: pkg=terminator
       become: yes
@@ -70,10 +66,6 @@
 
     - name: Install OpenVPN client
       apt: pkg=openvpn
-      become: yes
-
-    - name: Install PCP GUI
-      apt: pkg=pcp-gui
       become: yes
 
     - name: Install webupd8team apt repository for Oracle Java
@@ -197,11 +189,6 @@
       command: laptop-detect
       register: is_laptop
       ignore_errors: yes
-
-    - name: Install PowerTOP to track power consumption
-      apt: pkg=powertop
-      when: is_laptop|succeeded
-      become: yes
 
     - name: Install Laptop Mode Tools
       apt: pkg=laptop-mode-tools
