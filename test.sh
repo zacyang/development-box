@@ -1,3 +1,3 @@
 #!/bin/bash
 
-vagrant destroy -f && vagrant up && vagrant reload
+vagrant up && vagrant reload
