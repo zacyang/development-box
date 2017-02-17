@@ -168,6 +168,10 @@
       apt: pkg=gimp
       become: yes
 
+    - name: Install shutter screenshot tool
+      apt: pkg=shutter
+      become: yes
+
     - name: Copy bashrc source file
       copy: src=bashrc dest=/tmp/bashrc
 
