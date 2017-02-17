@@ -1,3 +1,9 @@
+    - name: Create home directories
+      file: path=~/{{ item }} state=directory
+      with_items:
+      - Installs
+      - .config/terminator
+
     - name: Install base packages
       apt: pkg={{ item }}
       become: yes
@@ -48,6 +54,15 @@
     - name: Install terminator terminal emulator
       apt: pkg=terminator
       become: yes
+
+    - name: Infinite scrollback for terminator
+      blockinfile:
+        dest: ~/.config/terminator/config
+        create: yes
+        block: |
+          [profiles]
+            [[default]]
+              scrollback_infinite = True
 
     - name: Install SSH server
       apt: pkg=openssh-server
@@ -126,11 +141,6 @@
       lineinfile: dest=~/.vimrc line="{{ item }}"
       with_items:
       - let g:vim_markdown_folding_style_pythonic = 1
-
-    - name: Create home directories
-      file: path=~/{{ item }} state=directory
-      with_items:
-      - Installs
 
     - name: Symlink ~/Installs
       file: src=~/Installs dest=/tmp/Installs state=link
