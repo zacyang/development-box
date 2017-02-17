@@ -188,6 +188,11 @@
       register: is_laptop
       ignore_errors: yes
 
+    - name: Install PowerTOP to track power consumption
+      apt: pkg=powertop
+      when: is_laptop|succeeded
+      become: yes
+
     - name: Install Laptop Mode Tools
       apt: pkg=laptop-mode-tools
       when: is_laptop|succeeded
