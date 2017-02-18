@@ -10,3 +10,6 @@
 [submodule "roles/environment-monitoring"]
 	path = roles/environment-monitoring
 	url = git@github.com:svo/environment-monitoring.git
+[submodule "roles/environment-nodejs"]
+	path = roles/environment-nodejs
+	url = git@github.com:svo/environment-nodejs.git

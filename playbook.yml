@@ -8,4 +8,5 @@
     - environment-docker
     - environment-java
     - environment-clojure
+    - environment-nodejs
     - .
