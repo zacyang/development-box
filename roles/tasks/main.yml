@@ -68,28 +68,6 @@
       apt: pkg=openvpn
       become: yes
 
-    - name: Install webupd8team apt repository for Oracle Java
-      apt_repository: repo='ppa:webupd8team/java' state=present
-      become: yes
-
-    - name: Accept Oracle Java license
-      debconf: name={{ item }} question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
-      become: yes
-      with_items:
-      - oracle-java7-installer
-      - oracle-java8-installer
-
-    - name: Install Oracle Java
-      apt: pkg={{ item }}
-      become: yes
-      with_items:
-      - oracle-java7-installer
-      - oracle-java8-installer
-
-    - name: Install Maven 3
-      apt: pkg=maven
-      become: yes
-
     - name: Install rbenv ruby version control
       apt: pkg={{ item }}
       become: yes
