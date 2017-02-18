@@ -19,6 +19,10 @@
       - python-software-properties
       - python-gpgme
 
+    - name: Remove Totem media player
+      apt: pkg=totem state=absent
+      become: yes
+
     - name: Install VLC media player
       apt: pkg=vlc
       become: yes
