@@ -132,6 +132,7 @@
       - vagrant_1.9.1_x86_64.deb
       - dropbox_2015.10.28_amd64.deb
       - atom-amd64.deb
+      - Rambox_0.5.3-x64.deb
 
     - name: Get JetBrains toolbox
       get_url: url=https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.1.2143.tar.gz dest=~/Installs/jetbrains-toolbox-1.1.2143.tar.gz
