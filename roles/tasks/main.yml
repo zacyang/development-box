@@ -163,3 +163,8 @@
       apt: pkg=laptop-mode-tools
       when: is_laptop|succeeded
       become: yes
+
+    - name: Install multitouch gesture recognizer
+      apt: pkg=touchegg
+      when: is_laptop|succeeded
+      become: yes
