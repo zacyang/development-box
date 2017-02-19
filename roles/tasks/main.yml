@@ -27,6 +27,10 @@
       apt: pkg=vlc
       become: yes
 
+    - name: Install Address Book
+      apt: pkg=address-book-app
+      become: yes
+
     - name: Install Geary email client
       apt: pkg=geary
       become: yes
