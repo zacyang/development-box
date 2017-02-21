@@ -62,14 +62,8 @@
       apt: pkg=terminator
       become: yes
 
-    - name: Infinite scrollback for terminator
-      blockinfile:
-        dest: ~/.config/terminator/config
-        create: yes
-        block: |
-          [profiles]
-            [[default]]
-              scrollback_infinite = True
+    - name: Copy terminator configuration
+      copy: src=terminator.config dest=~/.config/terminator/config
 
     - name: Install SSH server
       apt: pkg=openssh-server
