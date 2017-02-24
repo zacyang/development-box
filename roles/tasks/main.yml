@@ -180,7 +180,7 @@
       - run
 
     - name: Install current nVidia drivers
-      apt: pkg=nvidia-352
+      apt: pkg=nvidia-current
       when: is_nvidia|succeeded
       become: yes
       tags:
