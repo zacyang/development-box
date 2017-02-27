@@ -65,6 +65,10 @@
     - name: Copy terminator configuration
       copy: src=terminator.config dest=~/.config/terminator/config
 
+    - name: Install Samba client
+      apt: pkg=smbclient
+      become: yes
+
     - name: Install SSH server
       apt: pkg=openssh-server
       become: yes
