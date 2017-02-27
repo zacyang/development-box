@@ -184,7 +184,7 @@
       - run
 
     - name: Install current nVidia drivers
-      apt: pkg=nvidia-current
+      apt: pkg=nvidia-367
       when: is_nvidia|succeeded
       become: yes
       tags:
